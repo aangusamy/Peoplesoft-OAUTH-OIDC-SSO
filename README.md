@@ -122,6 +122,14 @@ Security Recommendations
 • Ensure all requests pass through the filter
 • Restrict direct access to backend WebLogic ports
 • Do not expose internal admin ports
+
+Compile:
+
+Compile-->javac -encoding UTF-8 -cp ".:/opt/oracle/psft/pt/ps_home8.61.11/class/psjoa.jar:/opt/oracle/psft/pt/bea/wlserver/server/lib/weblogic.jar" OIDCSecurityFilter.java
+-->jar cvf oidc-filter.jar OIDCSecurityFilter*.class
+/home/psadm2/psft/pt/8.61/webserv/peoplesoft/bin/stopPIA.sh
+/home/psadm2/psft/pt/8.61/webserv/peoplesoft/bin/startPIA.sh
+tail -f /home/psadm2/psft/pt/8.61/webserv/peoplesoft/servers/PIA/logs/PIA_stdout.log
 • Validate ID token signature and issuer
 • Ensure token expiration checks are enabled
 
